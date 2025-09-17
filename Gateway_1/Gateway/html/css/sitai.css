@@ -1,0 +1,141 @@
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+  
+}
+
+/* Header Styles */
+header {
+    background: #fff;
+    color: #333;
+    padding: 0px 0;
+    text-align: left;
+  
+}
+
+header div{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%; /* Ensure the div takes up the full width */
+    position: relative; /* Required for absolute positioning of the text */
+  
+}
+header img{
+
+    width: 20%;
+    height: auto;
+
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    
+    margin: 0; /* Remove default margin */
+    font-size: 2vw;
+    align-self: center; /* Center vertically within the flex container */
+    position: absolute; /* Position the text absolutely */
+    left: 50%; /* Move the text to the horizontal center */
+    transform: translateX(-50%); /* Adjust for exact centering */
+}
+
+#login {
+    margin-left: auto; /* Đẩy login sang bên phải */
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+    padding: 2px 2px;
+    
+    margin-right: 4px;
+}
+
+/* Navigation Styles */
+nav {
+    background: #444;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px 0;
+}
+
+main section {
+    margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+main p, main ul {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+main ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+

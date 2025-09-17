@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Node</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .interval-group {
+      display: flex;
+      gap: 10px;
+    }
+    .interval-group select {
+      flex: 1;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Add Node</h2>
+
+  <form action="/add_node_request" method="POST">
+    <label for="node_id">Node ID</label>
+    <select id="node_id" name="node_id" required>
+      <option value="">-- Select node --</option>
+      {{ range .Nodes }}
+        <option value="{{ .ID }}"  data-name="{{ .Name }}">{{ printf "%01d - %s" .ID .Name }}</option>
+      {{ end }}
+    </select>
+    <label for="node_address">Node Address</label>
+    <input type="text" id="node_address" name="node_address" required value="{{ .Node_address }}">
+
+    <label for="aes_key">AES Key</label>
+    <input type="text" id="aes_key" name="aes_key" required value="{{ .AES_KEY }}" >
+
+
+    <label for="auth_key">AUTH Key</label>
+    <input type="text" id="auth_key" name="auth_key" required value="{{ .AUTHENTICATION_KEY }} ">
+
+
+
+    <label>Ping Interval</label>
+    <div class="interval-group">
+      <select id="ping_days" name="ping_days" required>
+
+      </select>
+    
+      <select id="ping_hours" name="ping_hours" required>    
+      </select>
+    
+      <select id="ping_minutes" name="ping_minutes" required>
+        
+      </select>
+    
+      <select id="ping_seconds" name="ping_seconds" required>
+       
+      </select>
+    </div>
+    
+    <label for="is_ack_needed">ACK Needed?</label>
+    <select id="is_ack_needed" name="is_ack_needed" required>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    
+    <button id="submit_node_register_button" type="button" >Add Node</button>
+    
+  </form>
+
+
+
+  <script>
+    function fillSelect(id, max, suffix) {
+      const sel = document.getElementById(id);
+      for (let i = 0; i <= max; i++) {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.text  = suffix ? (i + " " + suffix) : i;
+        sel.appendChild(opt);
+      }
+    }
+    
+    fillSelect("ping_days", 30,  "day");
+    fillSelect("ping_hours", 23, "hr");
+    fillSelect("ping_minutes", 59, "min");
+    fillSelect("ping_seconds", 59, "sec");
+    </script>
+  <script src="/static/js/addnode.js?v=123123123123132"> 
+    </script>
+</body>
+</html>
